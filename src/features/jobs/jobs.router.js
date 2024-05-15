@@ -14,7 +14,7 @@ jobsRouter.get('/:id', (req, res) => {
     if (!job) {
         return res.status(404).send('Job not found');
     }
-    res.render('jobs-details', { job,result});
+    res.render('jobs-details', { job,result,appliedStatus:null});
 });
 jobsRouter.post('/:id/apply',upload.single('file'),(req,res,next)=>{
     const {name,email,phone}= req.body;
@@ -23,6 +23,6 @@ jobsRouter.post('/:id/apply',upload.single('file'),(req,res,next)=>{
     const result= JobsModel.getTotalApplicants()
     const jobId = req.params.id;
     const job = JobsModel.getById(jobId);
-    res.render('jobs-details',{job,result})
+    res.render('jobs-details',{job,result,appliedStatus:true})
 })
 export default jobsRouter

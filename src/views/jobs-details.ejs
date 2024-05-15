@@ -50,7 +50,11 @@
 
                     <% }); %>
                         <!-- Modal Trigger Button -->
+                       <% if(appliedStatus){%>
+                        <button class="bg-success apply-now">Applied!</button>
+                       <% }else{%>
                         <a href="#myModal" class="bg-info apply-now " data-bs-toggle="modal"> Apply Now</a>
+                        <% }%>
                         <!-- Modal -->
                         <div id="myModal" class="modal my-modal " tabindex="-1" role="dialog"
                             aria-labelledby="myModalLabel" aria-hidden="true">
@@ -83,6 +87,7 @@
                                             </div>
                                             <button type="submit">Submit</button>
                                         </form>
+                                        
                                     </div>
                                 </div>
                             </div>
