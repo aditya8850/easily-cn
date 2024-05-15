@@ -15,6 +15,14 @@ export default class JobsModel{
         const job= jobs.find((j)=>j.id== id);
         return job;
      }
+     static addApplicantDb({name,email,phone,file}){
+        let applicantData= {name,email,phone,file};
+        applicants.push(applicantData)
+        return applicants
+     }
+     static getTotalApplicants(){
+        return applicants.length
+     }
 }
 const jobs=[
     new JobsModel(1,"Coding Ninjas","Tech","SDE","Bangalore","4 - 7 Lpa",["Java","Python","React","NodeJS"]),
@@ -24,8 +32,5 @@ const jobs=[
     new JobsModel(5,"GO Digit","Tech","Full-stack Engineer","J&K","9 - 11 Lpa",["JavaScript","React","NodeJS"]),
     new JobsModel(6,"JusPay","XYZ","XYZ XYZ","XYZ","5 Lpa",["XYZ","XYZ","XYZ","XYZ"]),
     new JobsModel(7,"Coding Ninjas","Tech","SDE","Bangalore","4 - 7 Lpa",["Java","Python","React","NodeJS"]),
-    
-   
-   
-    
 ]
+const applicants=[]

@@ -1,7 +1,7 @@
 <div class="jobs-details">
     <div id="details-container">
-        <div class="banner-container">
-            <img class="d-block w-100" src="/images/carousel-1.jpg" alt="First slide">
+        <div class="banner-container"><a href=""><img class="d-block w-100"
+                    src="https://files.codingninjas.com/web-banner-28759.png" alt="First slide"></a>
         </div>
         <% if (job) { %>
             <div class="card-body">
@@ -38,14 +38,55 @@
                 </p>
                 <p class="card-salary fw-bold">Apply By 30 Aug 2023.</p>
                 <p class="card-salary fw-bold">Number of opening: 5</p>
-                <p class="card-salary fw-bold">Applicants: 1</p>
+                <p class="card-salary fw-bold">Applicants:<%if(result){%>
+                        <%=result%>
+                            <% } %>
+                </p>
+
                 <% job.skills.forEach((skill)=> { %>
                     <span class="skills-tags">
                         <%= skill %>
                     </span>
 
                     <% }); %>
-                        <a href="#" class="bg-info apply-now"> Apply Now</a>
+                        <!-- Modal Trigger Button -->
+                        <a href="#myModal" class="bg-info apply-now " data-bs-toggle="modal"> Apply Now</a>
+                        <!-- Modal -->
+                        <div id="myModal" class="modal my-modal " tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog ">
+                                <div class="modal-content">
+                                    <div class="modal-header modal-header2 ">
+                                        <h2>Provide the details to apply</h2>
+                                        <button type="button" class="btn-close modal-close-btn " data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body modal-styles">
+                                        <form method="post" action="/jobs/<%= job.id %>/apply"
+                                            enctype="multipart/form-data">
+                                            <div class="form-ele">
+                                                <label for="name">Name:</label>
+                                                <input type="text" id="name" name="name" style="width: 100%;">
+                                            </div>
+                                            <div class="form-ele">
+                                                <label for="email">Email:</label>
+                                                <input type="email" id="email" name="email" style="width: 100%;">
+                                            </div>
+
+                                            <div class="form-ele">
+                                                <label for="phone">Phone:</label>
+                                                <input type="tel" id="phone" name="phone" style="width: 100%;">
+                                            </div>
+                                            <div class="form-ele">
+                                                <label for="resume">Upload Resume:</label>
+                                                <input type="file" id="resume" name="file">
+                                            </div>
+                                            <button type="submit">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <% } else { %>
                             <p>No job details available.</p>
                             <% } %>

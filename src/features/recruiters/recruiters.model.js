@@ -11,6 +11,7 @@ export default class RecruitersModel{
     static showRecruiters(){
         return recruiters;
     }
+    
 }
 const recruiters=[
     new RecruitersModel("Raj","raj@gmail.com","raj123"),

@@ -5,8 +5,8 @@ import recruitersRouter from "../easily-cn/src/features/recruiters/recruiters.ro
 import jobsRouter from "./src/features/jobs/jobs.router.js";
 import bodyParser from "body-parser";
 const app= express();
-app.use(expressEjsLayouts);
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(expressEjsLayouts);
 app.set("view engine","ejs");
 const ejsViewsPath= path.join(path.resolve(),"src","views");
 app.set("views",ejsViewsPath);
@@ -17,3 +17,4 @@ app.use('/recruiters',recruitersRouter)
 app.listen(4000,()=>{
     console.log("Server listening");
 });
+

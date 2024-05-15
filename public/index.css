@@ -59,6 +59,9 @@ html {
   background-color: #0e0d0d !important;
   color: white;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 1px 10px;
+  position: fixed;
+  width: 100vw;
+  z-index: 1;
 }
 
 .modal-footer i {
@@ -123,6 +126,7 @@ body {
 }
 
 .jobs-container {
+  padding-top: 3rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 
@@ -138,7 +142,6 @@ body {
 }
 .card-body{
   padding: 0 0 0 2rem;
-  margin-bottom: 2rem;
 
 }
 .skills-tags {
@@ -164,11 +167,12 @@ body {
 }
 
 .visit-details {
-  margin-top: 1rem;
   display: block;
   color: white;
   background: black;
   font-weight: 900;
+  max-width: 79%;
+  margin-bottom: 1rem;
 }
 .visit-details:hover{
   background: white;
@@ -186,7 +190,7 @@ body {
 #details-container{
   width:80%;
   margin: auto;
-  padding-bottom: 1rem;
+  padding: 3.5rem 0;
   background: rgba(3, 2, 2, 0.378);
 }
 .banner-container{
@@ -201,6 +205,7 @@ body {
 }
 .banner-h1{
   margin:1rem 0 0 0 ;
+  padding: 1.5rem;
 }
 .banner-h1 span{
   font-weight: 800;
@@ -212,9 +217,11 @@ body {
   max-width: 10vw;
   text-align: center;
   padding:0.5em;
+  margin-top: 1.5rem;
   font-weight: 1000;
   color: white;
   border-radius: 3px;
+  
   
 }
 @keyframes font-size {
@@ -223,8 +230,71 @@ body {
   }
   100%{
     transform: scale(1.1);
+    color: black;
+    text-align: center;
   }
 }
 .apply-now:hover{
-  animation: font-size 0.5s  ;
+  animation: font-size 0.8s forwards ;
+}
+.modal-styles{
+  font-weight: 600;
+  background: black;
+  
+}
+.modal-styles[input]{
+  width: 100%;
+}
+.modal-styles button{
+  padding: 1rem;
+  font-size: 2.4rem;
+  font-weight: 900;
+  background: none;
+  color: white;
+  border: none;
+  display:block;
+  background: black;
+  width:100%;
+}
+.modal-styles button:hover{
+  padding: 1rem;
+  font-size: 2.4rem;
+  font-weight: 900;
+  background: none;
+  color: white;
+  border: none;
+  display:block;
+  background: black;
+  text-shadow: 0.1rem 0.1rem 1rem white;
+}
+.modal-header2{
+  background: black;
+  color: white;
+}
+.modal-header2 h2{
+  text-shadow: 0.5rem 0.1rem 1rem white;
+}
+.modal-close-btn{
+  background-color:  #686262;;
+}
+.modal-close-btn:hover{
+  background-color:  #e4e3e3a6;;
+}
+/* adding modal transition */
+.my-modal {
+  opacity: 0; /* Initially set opacity to 0 */
+}
+
+.my-modal.show {
+  animation: opacity 0.5s ease-in forwards; /* Add transition for opacity property */
+   /* Initially set opacity to 0 */
+}
+@keyframes opacity{
+  0% {opacity: 0}
+  100%{opacity: 1}
+}
+
+.form-ele{
+  padding: 1rem;
+  
 }

@@ -1,5 +1,6 @@
 <div class="card-container jobs-container">
     <% if(jobs && jobs.length> 0) { %>
+        
         <% jobs.forEach((job)=> { %>
             <div class="card card-box" style="width: 18rem;">
                 <span style="width: 160px"
@@ -38,7 +39,8 @@
                             <%= skill %>
                         </span>
                         <% }); %>
-                            <a href="/jobs/<%= job.id %>" class="btn  visit-details">Visit details</a>
+                        <a href="/jobs/<%= job.id %>" class="btn visit-details">Apply Now</a>
+                            
                 </div>
             </div>
             <% }); %>
