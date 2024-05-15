@@ -1,13 +1,25 @@
 <div class="jobs-details">
     <div id="details-container">
-        
-        <div class="card-body">
-            <% if (job) { %>
-                <h4 class="card-title my-1 fw-bold text-info">
+        <div class="banner-container">
+            <img class="d-block w-100" src="/images/carousel-1.jpg" alt="First slide">
+        </div>
+        <% if (job) { %>
+            <div class="card-body">
+                <div class="banner-h1">
+                    <h1><span>
+                            <%= job.role %>
+                        </span> opportunity in <span>
+                            <%= job.location%>
+                        </span> at <span>
+                            <%= job.name %>.
+                        </span></h1>
+                </div>
+
+                <h4 class="card-title my-1 fw-bold text-info text-uppercase">
                     <%= job.name %>
                 </h4>
                 <p class="card-role">
-                    <span class="text-success fw-bold">
+                    <span class=" fw-bold" style="font-size:1.4rem;">
                         <%= job.profile %>
                     </span>
                     <%= job.role %>
@@ -24,15 +36,20 @@
                     </svg>
                     <%= job.salary %>
                 </p>
-                <% job.skills.forEach((skill) => { %>
+                <p class="card-salary fw-bold">Apply By 30 Aug 2023.</p>
+                <p class="card-salary fw-bold">Number of opening: 5</p>
+                <p class="card-salary fw-bold">Applicants: 1</p>
+                <% job.skills.forEach((skill)=> { %>
                     <span class="skills-tags">
                         <%= skill %>
                     </span>
-                <% }); %>
-            <% } else { %>
-                <p>No job details available.</p>
-            <% } %>
-        </div>
+
+                    <% }); %>
+                        <a href="#" class="bg-info apply-now"> Apply Now</a>
+                        <% } else { %>
+                            <p>No job details available.</p>
+                            <% } %>
+            </div>
     </div>
-    
+
 </div>
