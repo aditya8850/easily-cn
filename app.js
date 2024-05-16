@@ -7,7 +7,6 @@ import JobsModel from "./src/features/jobs/jobs.model.js";
 import bodyParser from "body-parser";
 import session from "express-session";
 const app= express();
-app.use("/app/", router);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressEjsLayouts);

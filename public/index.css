@@ -323,6 +323,7 @@ body {
 }
 
 .my-modal.show {
+  opacity: 1;
   animation: opacity 0.5s ease-in forwards;
   /* Add transition for opacity property */
   /* Initially set opacity to 0 */
