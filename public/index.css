@@ -20,15 +20,17 @@ html {
 }
 
 .container-lpage {
-  padding-top: 4rem;
+  padding-top: 0;
   background-color: #19191a;
-  height: 100vh;
+  
 }
 
 .main {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  
 }
 
 .left {
@@ -37,6 +39,9 @@ html {
   align-items: flex-start;
   justify-content: center;
   gap: 10px;
+  padding:none;
+
+ 
 }
 
 .lbtn {
@@ -50,6 +55,7 @@ html {
   background-color: #e3d6dc;
   color: black;
 }
+
 
 .main-heading {
   color: #fcfcfc;
