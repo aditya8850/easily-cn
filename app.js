@@ -6,7 +6,12 @@ import jobsRouter from "./src/features/jobs/jobs.router.js";
 import JobsModel from "./src/features/jobs/jobs.model.js";
 import bodyParser from "body-parser";
 import session from "express-session";
+import serverless from "serverless-http";
+import { Router } from "express";
 const app= express();
+const router= Router();
+app.use("/app/", router);
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressEjsLayouts);
 app.set("view engine","ejs");
@@ -29,7 +34,8 @@ app.get('/search',(req,res)=>{
     }
     const searchResults = JobsModel.searchJobs(query);
     res.render('jobs', { jobs: searchResults, userAuth:null });
-})
+});
+export const handler = serverless(app);
 
 app.listen(3000,()=>{
     console.log("Server listening");
