@@ -17,7 +17,7 @@
 
             <label for="role" class="form-label">Role:</label>
             <div class="form-check">
-                <input type="radio" id="role1" name="role" value="SDE" class="form-check-input">
+                <input type="radio" id="role1" name="role" value="SDE" class="form-check-input form1-style">
                 <label for="role1" class="form-check-label">SDE</label>
             </div>
             <div class="form-check">
@@ -60,9 +60,15 @@
             </select>
 
             <input type="submit" value="Update" class="btn btn-primary mt-3">
+
         </form>
+        
 
         <% } %>
+        <form action="/jobs/<%= jobById.id %>/delete" method="post" class="form-group edit-form-style form2-style" ">
+            <input type="submit" value="Delete" class="btn btn-primary mt-3">
+        </form>
 </div>
+
 
 <!-- name, profile, role, location, salary, applyDate, openings, skills -->

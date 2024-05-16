@@ -348,7 +348,6 @@ body {
 }
 
 .container-post-new {
-  display: flex;
   padding-top: 3.5rem;
   width: 100%;
 }

@@ -47,16 +47,12 @@ jobsRouter.post('/:id/apply', upload.single('file'), (req, res, next) => {
     const result = req.result;
     res.render('jobs-details', { job, result, appliedStatus: true, userAuth: req.session.user });
 });
-
-
-// // Route to search jobs
-// jobsRouter.get('/search', (req, res) => {
-//     const query= req.query.q
-//     if (!query) {
-//         return res.status(400).send('Search query is required');
-//     }
-//     const searchResults = JobsModel.searchJobs(query);
-//     res.render("jobs", { jobs, userAuth:req.session.user });
-// });
-
+jobsRouter.post('/:id/delete', (req, res) => {
+    const jobId = req.params.id;
+    // Call the method to delete the job by ID from your data store
+    // For example:
+    JobsModel.deleteJobById(jobId);
+    // Redirect back to the jobs list or any other appropriate page
+    res.redirect('/jobs');
+});
 export default jobsRouter;

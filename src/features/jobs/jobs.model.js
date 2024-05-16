@@ -71,6 +71,15 @@ export default class JobsModel {
             job.role.toLowerCase().includes(lowerCaseQuery)
         );
     }
+    static deleteJobById(id) {
+        const index = jobs.findIndex(job => job.id == id);
+        if (index !== -1) {
+            // Remove the job from the array if found
+            jobs.splice(index, 1);
+            return true; // Indicate successful deletion
+        }
+        return false; // Indicate job not found
+    }
 
 }
 
