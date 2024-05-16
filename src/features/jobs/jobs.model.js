@@ -1,36 +1,34 @@
-export default class JobsModel{
-    constructor(id,name,profile,role,location,salary,skills){
-        this.id=id;
-        this.name= name;
-        this.profile=profile;
-        this.role=role;
-        this.location=location;
-        this.salary=salary;
-        this.skills=skills;
+export default class JobsModel {
+    constructor(id, name, profile, role, location, salary, applyDate, openings, skills) {
+        this.id = id;
+        this.name = name;
+        this.profile = profile;
+        this.role = role;
+        this.location = location;
+        this.salary = salary;
+        this.applyDate = applyDate;
+        this.openings = openings;
+        this.skills = skills;
+        this.applicants = [];
     }
-    static getJobs(){
+    static getJobs() {
         return jobs;
     }
-    static getById(id){
-        const job= jobs.find((j)=>j.id== id);
+    static getById(id) {
+        const job = jobs.find((j) => j.id == id);
         return job;
-     }
-     static addApplicantDb({name,email,phone,file}){
-        let applicantData= {name,email,phone,file};
-        applicants.push(applicantData)
-        return applicants
-     }
-     static getTotalApplicants(){
-        return applicants.length
-     }
+    }
+    addApplicantDb({ name, email, phone, file }) {
+        let applicantData = { name, email, phone, file };
+        this.applicants.push(applicantData);
+        return this.applicants;
+    }
+    getTotalApplicants() {
+        return this.applicants.length
+    }
 }
-const jobs=[
-    new JobsModel(1,"Coding Ninjas","Tech","SDE","Bangalore","4 - 7 Lpa",["Java","Python","React","NodeJS"]),
-    new JobsModel(2,"GO Digit","Tech","Full-stack Engineer","J&K","9 - 11 Lpa",["JavaScript","React","NodeJS"]),
-    new JobsModel(3,"JusPay","XYZ","XYZ XYZ","XYZ","5 Lpa",["XYZ","XYZ","XYZ","XYZ"]),
-    new JobsModel(4,"Coding Ninjas","Tech","SDE","Bangalore","4 - 7 Lpa",["Java","Python","React","NodeJS"]),
-    new JobsModel(5,"GO Digit","Tech","Full-stack Engineer","J&K","9 - 11 Lpa",["JavaScript","React","NodeJS"]),
-    new JobsModel(6,"JusPay","XYZ","XYZ XYZ","XYZ","5 Lpa",["XYZ","XYZ","XYZ","XYZ"]),
-    new JobsModel(7,"Coding Ninjas","Tech","SDE","Bangalore","4 - 7 Lpa",["Java","Python","React","NodeJS"]),
+const jobs = [
+    new JobsModel(1, "Coding Ninjas", "Tech", "SDE", "Bangalore", "4 - 7 Lpa", new Date(), 5, ["Java", "Python", "React", "NodeJS"]),
+    new JobsModel(2, " Ninjas", "Tech", "SasdasdDE", "Banasfasfasfgalore", "4 - 7 Lpa", new Date(), 5, ["Javasda", "Pytashon", "Reasdact", "NoasddeJS"]),
+
 ]
-const applicants=[]

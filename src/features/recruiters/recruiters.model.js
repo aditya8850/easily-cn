@@ -11,8 +11,11 @@ export default class RecruitersModel{
     static showRecruiters(){
         return recruiters;
     }
-    
+    static authRecruiter(email,password){
+        const recruiter = recruiters.find(recruiter => recruiter.email == email && recruiter.password == password);
+        return recruiter
+    }
 }
 const recruiters=[
-    new RecruitersModel("Raj","raj@gmail.com","raj123"),
+    new RecruitersModel("Adi","kalsotraaditya98@gmail.com","1"),
 ]
