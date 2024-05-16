@@ -31,7 +31,7 @@ app.get('/search',(req,res)=>{
     res.render('jobs', { jobs: searchResults, userAuth:null });
 })
 
-app.listen(4000,()=>{
+app.listen(3000,()=>{
     console.log("Server listening");
 });
 
