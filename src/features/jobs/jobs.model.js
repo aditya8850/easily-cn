@@ -36,7 +36,7 @@ export default class JobsModel {
     }
 }
 const jobs = [
-    new JobsModel(1, "Coding Ninjas", "Tech", "SDE", "Bangalore", "4 - 7 Lpa", new Date(), 5, ["Java", "Python", "React", "NodeJS"]),
-    new JobsModel(2, " Ninjas", "Tech", "SasdasdDE", "Banasfasfasfgalore", "4 - 7 Lpa", new Date(), 5, ["Javasda", "Pytashon", "Reasdact", "NoasddeJS"]),
+    new JobsModel(1, "Coding Ninjas", "Tech", "SDE", "Bangalore", "400000", new Date(), 5, ["Java", "Python", "React", "NodeJS"]),
+    new JobsModel(2, " Netflix", "NonTech", "Analyst", "UK", "700000", new Date(), 5, ["PowerBi", "Python", "SQL"]),
 
 ]
