@@ -1,13 +1,12 @@
 import express from "express";
 import RecruitersModel from "../recruiters/recruiters.model.js"
 import JobsModel from "../jobs/jobs.model.js";
+import upload from "../../middlewares/multer.resume.js";
 const recruitersRouter = express.Router();
 recruitersRouter.post('/register',(req,res)=>{
    const {name,email,password} = req.body;
-   console.log(name,email,password);
    RecruitersModel.addRecruiter({name,email,password});
    const users= RecruitersModel.showRecruiters();
-   console.log(users);
    res.status(200).render("layout",{body:null,userAuth:null})
 });
 recruitersRouter.post('/login',(req,res)=>{
@@ -15,7 +14,6 @@ recruitersRouter.post('/login',(req,res)=>{
    let userAuth= RecruitersModel.authRecruiter(email,password);
    if(userAuth){
       req.session.user = userAuth;
-      console.log(userAuth);
       const jobs =JobsModel.getJobs()
       res.status(200).render("jobs", {jobs, userAuth: req.session.user });
    }else{
@@ -35,9 +33,30 @@ recruitersRouter.get('/logout', (req, res) => {
    });
 });
 
-recruitersRouter.get('/postjob',(req,res)=>{
-   res.send("hey")
+recruitersRouter.get('/postJob', (req, res) => {
+   // Assuming you have a form with fields like jobTitle, jobDescription, etc.
+   res.render("post-new-job",{userAuth:req.session.user})
+});
+recruitersRouter.post('/postJob',(req,res)=>{
+   const { name, profile, role, location, salary, date, openings, skills } = req.body;
+   // Create a new job object with the submitted data
+   const newJob = {
+       // You'll need to implement a function to generate a unique ID
+      name,
+      profile,
+      role,
+      location,
+      salary,
+      applyDate: new Date(date), // Assuming 'date' is in the format YYYY-MM-DD
+      openings,
+      skills
+  };
+
+  // Add the new job to your database or array
+  const newJob1= JobsModel.addNewJob(newJob);
+  res.redirect('/jobs');
 })
+
 
 
 

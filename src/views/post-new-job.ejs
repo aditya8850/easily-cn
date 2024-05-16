@@ -1,0 +1,68 @@
+<div class="container-post-new" style="color: white;">
+
+    <% if(userAuth){ %>
+        <form action="/recruiters/postJob" method="post" class="form-group edit-form-style">
+            <label for="name" class="form-label">Company Name:</label>
+            <input type="text" id="name" name="name" class="form-control">
+
+            <label for="profile" class="form-label">Profile:</label>
+            <div class="form-check">
+                <input type="radio" id="profile1" name="profile" value="Tech" class="form-check-input">
+                <label for="profile1" class="form-check-label">Tech</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" id="profile2" name="profile" value="Non-Tech" class="form-check-input">
+                <label for="profile2" class="form-check-label">Non-Tech</label>
+            </div>
+
+            <label for="role" class="form-label">Role:</label>
+            <div class="form-check">
+                <input type="radio" id="role1" name="role" value="SDE" class="form-check-input">
+                <label for="role1" class="form-check-label">SDE</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" id="role2" name="role" value="Front-end Dev" class="form-check-input">
+                <label for="role2" class="form-check-label">Front-end Dev</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" id="role3" name="role" value="Back-end Dev" class="form-check-input">
+                <label for="role3" class="form-check-label">Back-end Dev</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" id="role4" name="role" value="Fullstack Dev" class="form-check-input">
+                <label for="role4" class="form-check-label">Fullstack Dev</label>
+            </div>
+            <!-- Add more options as needed -->
+            </select>
+
+            <label for="location" class="form-label">Location:</label>
+            <input type="text" id="location" name="location" class="form-control">
+
+            <label for="salary" class="form-label">Salary:</label>
+            <input type="number" id="salary" name="salary" class="form-control">
+
+            <label for="date" class="form-label">Apply by:</label>
+            <input type="date" id="date" name="date" class="form-control">
+
+            <label for="openings" class="form-label">Openings:</label>
+            <input type="number" id="openings" name="openings" class="form-control">
+
+            <label for="skills" class="form-label">Skills:</label>
+            <select id="skills" name="skills[]" multiple class="form-select" aria-label="Multiple select example">
+                <option>React</option>
+                <option>Java</option>
+                <option>Html</option>
+                <option>Css</option>
+                <option>NodeJS</option>
+                <option>Python</option>
+                <option>Javasript</option>
+                <!-- Add more options as needed -->
+            </select>
+
+            <input type="submit" value="Update" class="btn btn-primary mt-3">
+        </form>
+
+        <% } %>
+</div>
+
+<!-- name, profile, role, location, salary, applyDate, openings, skills -->

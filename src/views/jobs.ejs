@@ -1,7 +1,6 @@
-
 <div class="card-container jobs-container">
     <% if(jobs && jobs.length> 0) { %>
-        
+
         <% jobs.forEach((job)=> { %>
             <div class="card card-box" style="width: 18rem;">
                 <span style="width: 160px"
@@ -35,18 +34,21 @@
                         </svg>
                         <%= job.salary %>
                     </p>
-                    <% job.skills.forEach((skill)=> { %>
-                        <span class="skills-tags">
-                            <%= skill %>
-                        </span>
-                        <% }); %>
-                       <% if(userAuth){ %>
-                            <a href="/jobs/<%= job.id %>/edit" class="btn visit-details">Edit</a>
-                       <% }else { %>
-                            <a href="/jobs/<%= job.id %>" class="btn visit-details">Apply Now</a>
-                       <% } %>
-                        
-                            
+                    <% if (job.skills && job.skills.length> 0) { %>
+                        <% job.skills.forEach((skill)=> { %>
+                            <span class="skills-tags">
+                                <%= skill %>
+                            </span>
+                            <% }); %>
+                                <% } %>
+
+                                    <% if(userAuth){ %>
+                                        <a href="/jobs/<%= job.id %>/edit" class="btn visit-details">Edit</a>
+                                        <% }else { %>
+                                            <a href="/jobs/<%= job.id %>" class="btn visit-details">Apply Now</a>
+                                            <% } %>
+
+
                 </div>
             </div>
             <% }); %>

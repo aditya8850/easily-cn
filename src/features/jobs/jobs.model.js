@@ -26,6 +26,14 @@ export default class JobsModel {
     getTotalApplicants() {
         return this.applicants.length
     }
+    static addNewJob(job) {
+        const id = jobs.length + 1; // Generating a unique ID
+        job.id = id; // Adding the ID to the job object
+        // creating a new job instance
+        job= new JobsModel(job.id,job.name,job.profile,job.role,job.location,job.salary,job.applyDate,job.openings,job.skills);
+        jobs.push(job);
+        console.log("jobs aer",jobs);
+    }
 }
 const jobs = [
     new JobsModel(1, "Coding Ninjas", "Tech", "SDE", "Bangalore", "4 - 7 Lpa", new Date(), 5, ["Java", "Python", "React", "NodeJS"]),

@@ -7,6 +7,7 @@ html {
   margin: 0;
   padding: 0;
   color: white;
+  box-sizing: border-box;
 
 }
 
@@ -134,27 +135,33 @@ body {
 }
 
 .card {
-  width: 10px;
   border: 2px solid white;
   margin: auto;
   margin-top: 1rem;
   background-color: #19191a;
   color: white;
 }
-.card-body{
-  padding: 0 0 0 2rem;
 
+.card-body {
+  padding: 0 0 0 2rem;
+  height: 100%;
+  
 }
+
 .skills-tags {
   display: inline-block;
-  width: 100px; /* Set a fixed width for each tag */
+  width: 100px;
+  /* Set a fixed width for each tag */
   border: 1px solid whitesmoke;
   border-radius: 0.2rem;
   cursor: pointer;
   text-align: center;
-  overflow: hidden; /* Hide the overflow */
-  white-space: nowrap; /* Prevent text from wrapping */
-  text-overflow: ellipsis; /* Show an ellipsis (...) for overflowed text */
+  overflow: hidden;
+  /* Hide the overflow */
+  white-space: nowrap;
+  /* Prevent text from wrapping */
+  text-overflow: ellipsis;
+  /* Show an ellipsis (...) for overflowed text */
   margin-bottom: 5px;
   font-weight: 700;
 }
@@ -175,126 +182,183 @@ body {
   max-width: 79%;
   margin-bottom: 1rem;
 }
-.visit-details:hover{
+
+.visit-details:hover {
   background: white;
   color: black;
 }
-.svg-logo{
-  margin: auto 0 0 auto  ;
+
+.svg-logo {
+  margin: auto 0 0 auto;
 }
-.jobs-details{
+
+.jobs-details {
   color: white;
   width: 100%;
-  background:#19191a ;
+  background: #19191a;
   height: 100%;
 }
-#details-container{
-  width:80%;
+
+#details-container {
+  width: 80%;
   margin: auto;
   padding: 3.5rem 0;
   background: rgba(3, 2, 2, 0.378);
 }
-.banner-container{
-  border:none;
+
+.banner-container {
+  border: none;
   width: 100%;
   height: 30vh;
 }
-.banner-container img{
+
+.banner-container img {
   width: 100%;
   height: 100%;
-  
+
 }
-.banner-h1{
-  margin:1rem 0 0 0 ;
+
+.banner-h1 {
+  margin: 1rem 0 0 0;
   padding: 1.5rem;
 }
-.banner-h1 span{
+
+.banner-h1 span {
   font-weight: 800;
   text-shadow: 0.1rem 0.1rem 10px white;
 }
-.apply-now{
+
+.apply-now {
   display: block;
   text-decoration: none;
   max-width: 10vw;
   text-align: center;
-  padding:0.5em;
+  padding: 0.5em;
   margin-top: 1.5rem;
   font-weight: 1000;
   color: white;
   border-radius: 3px;
   border: none;
 }
+
 @keyframes font-size {
-  0%{
+  0% {
     transform: scale(1);
   }
-  100%{
+
+  100% {
     transform: scale(1.1);
     color: black;
     text-align: center;
   }
 }
-.apply-now:hover{
-  animation: font-size 0.8s forwards ;
+
+.apply-now:hover {
+  animation: font-size 0.8s forwards;
 }
-.modal-styles{
+
+.modal-styles {
   font-weight: 600;
   background: black;
-  
+
 }
-.modal-styles[input]{
+
+.modal-styles[input] {
   width: 100%;
 }
-.modal-styles button{
+
+.modal-styles button {
   padding: 1rem;
   font-size: 2.4rem;
   font-weight: 900;
   background: none;
   color: white;
   border: none;
-  display:block;
+  display: block;
   background: black;
-  width:100%;
+  width: 100%;
 }
-.modal-styles button:hover{
+
+.modal-styles button:hover {
   padding: 1rem;
   font-size: 2.4rem;
   font-weight: 900;
   background: none;
   color: white;
   border: none;
-  display:block;
+  display: block;
   background: black;
   text-shadow: 0.1rem 0.1rem 1rem white;
 }
-.modal-header2{
+
+.modal-header2 {
   background: black;
+
+}
+
+.modal-header2 h2 {
+  text-shadow: 0.5rem 0.1rem 1rem white;
   color: white;
 }
-.modal-header2 h2{
-  text-shadow: 0.5rem 0.1rem 1rem white;
+
+.modal-close-btn {
+  background-color: #686262;
+  ;
 }
-.modal-close-btn{
-  background-color:  #686262;;
+
+.modal-close-btn:hover {
+  background-color: #e4e3e3a6;
+  ;
 }
-.modal-close-btn:hover{
-  background-color:  #e4e3e3a6;;
-}
+
 /* adding modal transition */
 .my-modal {
-  opacity: 0; /* Initially set opacity to 0 */
+  opacity: 0;
+  /* Initially set opacity to 0 */
+}
+
+.modal-header {
+  color: black;
+  font-size: 1rem;
 }
 
 .my-modal.show {
-  animation: opacity 0.5s ease-in forwards; /* Add transition for opacity property */
-   /* Initially set opacity to 0 */
-}
-@keyframes opacity{
-  0% {opacity: 0}
-  100%{opacity: 1}
+  animation: opacity 0.5s ease-in forwards;
+  /* Add transition for opacity property */
+  /* Initially set opacity to 0 */
 }
 
-.form-ele{
+@keyframes opacity {
+  0% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+.form-ele {
   padding: 1rem;
-  
+
+}
+
+.a-disabled {
+  cursor: not-allowed;
+}
+
+.container-post-new {
+  display: flex;
+  padding-top: 3.5rem;
+  width: 100%;
+}
+
+.edit-form-style {
+  margin: auto;
+  width: 80%;
+}
+
+.edit-form-style label {
+  padding-top: 1.5rem;
+  font-weight: 900;
 }
