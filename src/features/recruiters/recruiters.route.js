@@ -20,6 +20,32 @@ recruitersRouter.post('/login',(req,res)=>{
       res.send("no user found please register first")
    }
 });
+recruitersRouter.get("/:id/edit",(req,res)=>{
+   const id = req.params.id;
+   const jobById= JobsModel.getById(id);
+   res.render('job-edits',{jobById,userAuth:req.session.user})
+   
+});
+recruitersRouter.post('/:id/edit',(req,res)=>{
+   const id= req.params.id;
+   const{name,profile,role,location,salary,date,openings,skills}=req.body;
+   const updatedJobDetails = {
+      name,
+      profile,
+      role,
+      location,
+      salary,
+      applyDate: new Date(date), // Assuming 'date' is in the format YYYY-MM-DD
+      openings,
+      skills
+  };
+  // Call the updateJob method to update the job
+  
+  const updatedJob = JobsModel.updateJob(id, updatedJobDetails);
+  const jobs= JobsModel.getJobs()
+  res.render('jobs',{jobs,userAuth: req.session.user,})
+
+});
 recruitersRouter.get('/logout', (req, res) => {
    // Destroy the session
    req.session.destroy((err) => {

@@ -1,9 +1,9 @@
 <div class="container-post-new" style="color: white;">
 
-    <% if(userAuth){ %>
-        <form action="/recruiters/postJob" method="post" class="form-group edit-form-style">
+    <% if(userAuth &&jobById){ %>
+        <form action="/recruiters/<%= jobById.id %>/edit" method="post" class="form-group edit-form-style">
             <label for="name" class="form-label">Company Name:</label>
-            <input type="text" id="name" name="name" class="form-control">
+            <input type="text" id="name" name="name" class="form-control" placeholder="<%=jobById.name%>">
 
             <label for="profile" class="form-label">Profile:</label>
             <div class="form-check">
@@ -36,16 +36,16 @@
             </select>
 
             <label for="location" class="form-label">Location:</label>
-            <input type="text" id="location" name="location" class="form-control">
+            <input type="text" id="location" name="location" class="form-control" placeholder="<%=jobById.location%>">
 
             <label for="salary" class="form-label">Salary:</label>
-            <input type="number" id="salary" name="salary" class="form-control">
+            <input type="number" id="salary" name="salary" class="form-control" placeholder="<%=jobById.salary%>">
 
             <label for="date" class="form-label">Apply by:</label>
             <input type="date" id="date" name="date" class="form-control">
 
             <label for="openings" class="form-label">Openings:</label>
-            <input type="number" id="openings" name="openings" class="form-control">
+            <input type="number" id="openings" name="openings" class="form-control" placeholder="<%=jobById.openings%>">
 
             <label for="skills" class="form-label">Skills:</label>
             <select id="skills" name="skills[]" multiple class="form-select" aria-label="Multiple select example">
@@ -59,7 +59,7 @@
                 <!-- Add more options as needed -->
             </select>
 
-            <input type="submit" value="Add" class="btn btn-primary mt-3">
+            <input type="submit" value="Update" class="btn btn-primary mt-3">
         </form>
 
         <% } %>

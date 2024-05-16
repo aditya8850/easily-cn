@@ -32,8 +32,25 @@ export default class JobsModel {
         // creating a new job instance
         job= new JobsModel(job.id,job.name,job.profile,job.role,job.location,job.salary,job.applyDate,job.openings,job.skills);
         jobs.push(job);
-        console.log("jobs aer",jobs);
     }
+    static updateJob(id, updatedJobDetails) {
+        const jobViaIndex = jobs.find(job => job.id == id);
+        if (jobViaIndex) {
+            // Iterate over the keys of updatedJobDetails
+            for (const key in updatedJobDetails) {
+                // Check if the key exists in jobViaIndex
+                if (key in jobViaIndex) {
+                    // Update the property with the value from updatedJobDetails
+                    jobViaIndex[key] = updatedJobDetails[key];
+                }
+            }
+            return jobViaIndex; // Return the updated job
+        } else {
+            return null; // Return null if job is not found
+        }
+        
+    }
+    
 }
 const jobs = [
     new JobsModel(1, "Coding Ninjas", "Tech", "SDE", "Bangalore", "400000", new Date(), 5, ["Java", "Python", "React", "NodeJS"]),
