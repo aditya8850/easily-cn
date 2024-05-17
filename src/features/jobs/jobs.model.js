@@ -84,7 +84,14 @@ export default class JobsModel {
 }
 
 // Sample job data
+const now = new Date();
+const formattedDate= getFormattedDate(now)
 const jobs = [
-    new JobsModel(1, "Coding Ninjas", "Tech", "SDE", "Bangalore", "400000", new Date(), 5, ["Java", "Python", "React", "NodeJS"]),
-    new JobsModel(2, "Netflix", "NonTech", "Analyst", "UK", "700000", new Date(), 5, ["PowerBi", "Python", "SQL"]),
+    new JobsModel(1, "Coding Ninjas", "Tech", "SDE", "Bangalore", "400000", formattedDate, 5, ["Java", "Python", "React", "NodeJS"]),
+    new JobsModel(2, "Netflix", "Non Tech", "Data Analyst", "UK", "700000", formattedDate, 5, ["PowerBi", "Python", "SQL"]),
 ];
+function getFormattedDate(date) {
+    const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+    return date.toLocaleDateString('en-GB', options).replace(/,/g, '');
+}
+
